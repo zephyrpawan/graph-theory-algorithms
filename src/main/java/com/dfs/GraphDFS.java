@@ -4,12 +4,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Stack;
 
-public class Graph {
+public class GraphDFS {
 	private int vertices;
 	private LinkedList<Integer> adjList[];
 
 	@SuppressWarnings("unchecked")
-	Graph(int vertices) {
+	GraphDFS(int vertices) {
 		this.vertices = vertices;
 		adjList = new LinkedList[vertices];
 		for (int i = 0; i < vertices; ++i) {
@@ -23,17 +23,24 @@ public class Graph {
 	}
 
 	void DFSTraverseByRecursion(int vertex, boolean visited[]) {
+		
+		// Base case
+		if (visited[vertex]) {
+			return;
+		}
+		
 		// mark the current node as visited and print it
 		visited[vertex] = true;
-		System.out.println(vertex + " ");
+		System.out.print(vertex + " ");
 
 		// move to next node/vertex and recurse for all vertices
 		Iterator<Integer> itr = adjList[vertex].listIterator();
 		while (itr.hasNext()) {
 			int next = itr.next();
-			if (!visited[next]) {
+			if(!visited[next]) {
 				DFSTraverseByRecursion(next, visited);
 			}
+			
 		}
 	}
 
@@ -58,7 +65,7 @@ public class Graph {
 			stack.pop();
 
 			if (visited[vertex] == false) {
-				System.out.println(vertex + " ");
+				System.out.print(vertex + " ");
 				visited[vertex] = true;
 			}
 
@@ -70,6 +77,10 @@ public class Graph {
 				}
 			}
 		}
+
+	}
+
+	void BFSByIteration() {
 
 	}
 }
