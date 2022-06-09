@@ -36,7 +36,7 @@ public class GraphSCC {
 		//mark the vertex as visited and print it
 		visited[vertex] = true;
 		components[vertex] = sccCount;
-		System.out.print(vertex + " ");
+		//System.out.print(vertex + " ");
 		
 		//go to neighboring vertices and check
 		Iterator<Integer> itr = adjList[vertex].listIterator();
@@ -52,6 +52,8 @@ public class GraphSCC {
 	Map<String, int[]> findStronglyConnectedComponents() {
 		Map<String, int[]> sccMap = new HashMap<String, int[]>();
 		visited = new boolean[vertices];
+		sccCount=0;
+		
 		for(int i=0; i< vertices; i++) {
 			if(!visited[i]) {
 				sccCount++;

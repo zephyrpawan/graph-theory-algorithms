@@ -5,7 +5,7 @@ public class main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		GraphDFS graph  = new GraphDFS(4);
+		DepthFirstSearch graph  = new DepthFirstSearch(4);
 		graph.addEdge(0, 1);
 		graph.addEdge(0, 2);
 		graph.addEdge(1, 2);
@@ -58,8 +58,6 @@ public class main {
 		graphSCC.addEdge(16, 5);
 		graphSCC.addEdge(17, 5);
 		
-		System.out.println("DFS in GraphSCC");
-		//graphSCC.DFS(2);
 		System.out.println('\n');
 		
 		int sccCount = graphSCC.findStronglyConnectedComponents().get("SccCount")[0];

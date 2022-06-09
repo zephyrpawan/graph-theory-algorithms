@@ -4,12 +4,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Stack;
 
-public class GraphDFS {
+public class DepthFirstSearch {
 	private int vertices;
 	private LinkedList<Integer> adjList[];
 
 	@SuppressWarnings("unchecked")
-	GraphDFS(int vertices) {
+	DepthFirstSearch(int vertices) {
 		this.vertices = vertices;
 		adjList = new LinkedList[vertices];
 		for (int i = 0; i < vertices; ++i) {
