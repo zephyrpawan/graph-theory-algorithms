@@ -13,7 +13,7 @@ public class GraphSCC {
 	int components[];
 
 	@SuppressWarnings("unchecked")
-	GraphSCC(int vertices) {
+	public GraphSCC(int vertices) {
 		this.vertices = vertices;
 		visited = new boolean[vertices];
 		components = new int[vertices];
@@ -23,44 +23,44 @@ public class GraphSCC {
 		}
 	}
 
-	void addEdge(int v, int w) {
+	public void addEdge(int v, int w) {
 		adjList[v].add(w);
 	}
-	
-	void DFS(int vertex, boolean visited[]) {
-		//Base case
-		if(visited[vertex]) {
+
+	public void DFS(int vertex, boolean visited[]) {
+		// Base case
+		if (visited[vertex]) {
 			return;
 		}
-		
-		//mark the vertex as visited and print it
+
+		// mark the vertex as visited and print it
 		visited[vertex] = true;
 		components[vertex] = sccCount;
-		//System.out.print(vertex + " ");
-		
-		//go to neighboring vertices and check
+		// System.out.print(vertex + " ");
+
+		// go to neighboring vertices and check
 		Iterator<Integer> itr = adjList[vertex].listIterator();
-		while(itr.hasNext()) {
+		while (itr.hasNext()) {
 			int nextVertex = itr.next();
-			if(!visited[nextVertex]) {
+			if (!visited[nextVertex]) {
 				DFS(nextVertex, visited);
 			}
 		}
-		
+
 	}
-	
-	Map<String, int[]> findStronglyConnectedComponents() {
+
+	public Map<String, int[]> findStronglyConnectedComponents() {
 		Map<String, int[]> sccMap = new HashMap<String, int[]>();
 		visited = new boolean[vertices];
-		sccCount=0;
-		
-		for(int i=0; i< vertices; i++) {
-			if(!visited[i]) {
+		sccCount = 0;
+
+		for (int i = 0; i < vertices; i++) {
+			if (!visited[i]) {
 				sccCount++;
 				DFS(i, visited);
 			}
 		}
-		sccMap.put("SccCount", new int[] {sccCount});
+		sccMap.put("SccCount", new int[] { sccCount });
 		sccMap.put("SCC", components);
 		return sccMap;
 	}

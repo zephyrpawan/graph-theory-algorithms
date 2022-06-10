@@ -9,6 +9,7 @@ public class DepthFirstSearch {
 	private LinkedList<Integer> adjList[];
 
 	@SuppressWarnings("unchecked")
+	public
 	DepthFirstSearch(int vertices) {
 		this.vertices = vertices;
 		adjList = new LinkedList[vertices];
@@ -18,11 +19,11 @@ public class DepthFirstSearch {
 	}
 
 	// method to add an edge to a graph(adjacency list)
-	void addEdge(int v, int w) {
+	public void addEdge(int v, int w) {
 		adjList[v].add(w);
 	}
 
-	void DFSTraverseByRecursion(int vertex, boolean visited[]) {
+	public void DFSTraverseByRecursion(int vertex, boolean visited[]) {
 		
 		// Base case
 		if (visited[vertex]) {
@@ -44,14 +45,14 @@ public class DepthFirstSearch {
 		}
 	}
 
-	void DFSByRecursion(int vertex) {
+	public void DFSByRecursion(int vertex) {
 		// Initialize all vertices as not visited
 		boolean visited[] = new boolean[vertices];
 
 		DFSTraverseByRecursion(vertex, visited);
 	}
 
-	void DFSByIteration(int vertex) {
+	public void DFSByIteration(int vertex) {
 		boolean visited[] = new boolean[vertices];
 
 		// initialize a stack and push the root node to the stack

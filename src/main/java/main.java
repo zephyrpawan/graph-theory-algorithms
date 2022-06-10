@@ -1,11 +1,12 @@
-package com.dfs;
-
 import java.util.ArrayList;
+
+import com.bfs.BreadthFirstSearch;
+import com.dfs.DepthFirstSearch;
+import com.dfs.GraphSCC;
 
 public class main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		DepthFirstSearch graph = new DepthFirstSearch(4);
 		graph.addEdge(0, 1);
@@ -60,8 +61,6 @@ public class main {
 		graphSCC.addEdge(16, 5);
 		graphSCC.addEdge(17, 5);
 
-		System.out.println('\n');
-
 		int sccCount = graphSCC.findStronglyConnectedComponents().get("SccCount")[0];
 		int components[] = graphSCC.findStronglyConnectedComponents().get("SCC");
 
@@ -99,6 +98,25 @@ public class main {
 		System.out.println(scc3.toString());
 		System.out.println(scc4.toString());
 		System.out.println(scc5.toString());
+
+		// Breadth first search
+		BreadthFirstSearch graphBFS = new BreadthFirstSearch(6);
+		graphBFS.addEdge(0, 1);
+		graphBFS.addEdge(0, 3);
+		graphBFS.addEdge(0, 4);
+		graphBFS.addEdge(4, 5);
+		graphBFS.addEdge(3, 5);
+		graphBFS.addEdge(1, 2);
+		graphBFS.addEdge(1, 0);
+		graphBFS.addEdge(2, 1);
+		graphBFS.addEdge(4, 1);
+		graphBFS.addEdge(3, 1);
+		graphBFS.addEdge(5, 4);
+		graphBFS.addEdge(5, 3);
+
+		System.out.println();
+		System.out.println("BFS in GraphBFS: ");
+		graphBFS.BFS(0);
 
 	}
 
